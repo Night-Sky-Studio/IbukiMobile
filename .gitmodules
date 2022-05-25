@@ -1,0 +1,3 @@
+[submodule "IbukiBooruLibrary"]
+	path = IbukiBooruLibrary
+	url = https://github.com/Night-Sky-Studio/IbukiBooruLibrary.git
