@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IbukiMobile.Android", "Ibuk
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IbukiMobile.iOS", "IbukiMobile\IbukiMobile.iOS\IbukiMobile.iOS.csproj", "{5B167AAD-8773-432B-BE61-92E83083AC50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IbukiMobile", "IbukiMobile\IbukiMobile\IbukiMobile.csproj", "{E6BD4DA8-B26A-41B7-A11C-E84C87E1C460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IbukiMobile", "IbukiMobile\IbukiMobile\IbukiMobile.csproj", "{E6BD4DA8-B26A-41B7-A11C-E84C87E1C460}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IbukiBooruLibrary", "IbukiBooruLibrary\IbukiBooruLibrary.csproj", "{56543339-5D2B-4122-8117-F9D730CE85CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,18 @@ Global
 		{E6BD4DA8-B26A-41B7-A11C-E84C87E1C460}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{E6BD4DA8-B26A-41B7-A11C-E84C87E1C460}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{E6BD4DA8-B26A-41B7-A11C-E84C87E1C460}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|iPhone.Build.0 = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{56543339-5D2B-4122-8117-F9D730CE85CC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
