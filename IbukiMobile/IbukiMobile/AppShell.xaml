@@ -22,7 +22,7 @@
             </Grid>
         </ContentView>
     </Shell.FlyoutHeader>
-
+    
     <MenuItem x:Name="DanbooruMenuItem" Text="Danbooru"/>
     <MenuItem x:Name="SafebooruMenuItem" Text="Safebooru" />
     <MenuItem x:Name="KonnachanMenuItem" Text="Konnachan" />

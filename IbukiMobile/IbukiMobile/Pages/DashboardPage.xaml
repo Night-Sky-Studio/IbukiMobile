@@ -1,25 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:IbukiMobile.Pages;assembly=IbukiMobile"
+             xmlns:controls="clr-namespace:IbukiMobile.Controls;assembly=IbukiMobile"
+             xmlns:classes="clr-namespace:IbukiBooruLibrary.Classes;assembly=IbukiBooruLibrary"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              Title="Ibuki"
+             Appearing="DashboardPage_OnAppearing"
              x:Class="IbukiMobile.Pages.DashboardPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Shell.SearchHandler>
+        <controls:BooruSearchHandler SearchBoxVisibility="Collapsible" Placeholder="Enter tags" />
+    </Shell.SearchHandler>
+    
+    <Grid>
+        <RefreshView x:Name="CollectionRefreshView" VerticalOptions="Fill" Refreshing="RefreshView_Refreshing">
+            <CollectionView x:Name="BooruCollectionView" x:DataType="pages:DashboardPage" ItemsSource="{Binding ImagesCollection}" VerticalOptions="Start" HorizontalOptions="FillAndExpand" SelectionMode="None" Margin="8,8,8,0" Scrolled="BooruCollectionView_Scrolled">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3" SnapPointsAlignment="Center" HorizontalItemSpacing="8" VerticalItemSpacing="8"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="classes:BooruPost">
+                        <Frame HasShadow="False" HeightRequest="160" CornerRadius="4" Padding="0" IsClippedToBounds="True">
+                            <ffimageloading:CachedImage Source="{Binding PreviewFileURL}" Aspect="AspectFill" HeightRequest="160" ClassId="{Binding ID}" IsVisible="True" xct:TouchEffect.NativeAnimation="True">
+                                <ffimageloading:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                                </ffimageloading:CachedImage.GestureRecognizers>
+                            </ffimageloading:CachedImage>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <ActivityIndicator x:Name="LoadActivityIndicator" IsRunning="True" VerticalOptions="Center" />
+
+        <Grid x:Name="Error" InputTransparent="True">
+            <!--<lottie:AnimationView />-->
+            <Label x:Name="ErrorLabel" IsVisible="False" Text="" VerticalOptions="Center" HorizontalOptions="Center" IsTabStop="False"/>
+        </Grid>
+    </Grid>
 
 </ContentPage>
