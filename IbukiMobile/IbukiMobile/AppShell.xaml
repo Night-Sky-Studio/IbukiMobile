@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:IbukiMobile.Pages"
+       x:Class="IbukiMobile.AppShell"       
+       BackgroundColor="{StaticResource colorPrimary}"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+       FlyoutBehavior="Flyout">
+    <Shell.Style>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource colorPrimary}" />
+            <Setter Property="Shell.TabBarTitleColor" Value="White" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+            <Setter Property="Shell.TabBarUnselectedColor" Value="#AAFFFFFF" />
+        </Style>
+    </Shell.Style>
+    
+    <Shell.FlyoutHeader>
+        <ContentView HeightRequest="192">
+            <Grid BackgroundColor="{StaticResource colorPrimary}">
+                <Label HorizontalOptions="Start" VerticalOptions="End" Text="Ibuki" FontSize="Header" FontAttributes="Bold"/>
+            </Grid>
+        </ContentView>
+    </Shell.FlyoutHeader>
+
+    <MenuItem x:Name="DanbooruMenuItem" Text="Danbooru"/>
+    <MenuItem x:Name="SafebooruMenuItem" Text="Safebooru" />
+    <MenuItem x:Name="KonnachanMenuItem" Text="Konnachan" />
+    <MenuItem x:Name="GelbooruMenuItem" Text="Gelbooru" />
+    <MenuItem x:Name="DepribooruMenuItem" Text="Depribooru"/>
+    <MenuItem x:Name="CustomBooruMenuItem" IconImageSource="{StaticResource AddIcon}" Text="Create custom Booru"/>
+
+    <TabBar>
+        <Tab Title="Dashboard" Icon="{StaticResource DashboardIcon}">
+            <ShellContent Title="Dashboard" >
+                <pages:DashboardPage />
+            </ShellContent>
+        </Tab>
+        <Tab Title="Followed" Icon="{StaticResource FavOutlineIcon}">
+            <ShellContent Title="Favorites" >
+                <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Settings" Icon="{StaticResource SettingsIcon}">
+            <ShellContent Title="Settings" >
+                <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+</Shell>

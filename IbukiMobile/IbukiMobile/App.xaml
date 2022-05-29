@@ -3,6 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="IbukiMobile.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <!--#region Icons-->
+            <FontImageSource x:Key="ShareIcon" Glyph="&#xE80D;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="ShareImage" Source="{StaticResource ShareIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32"/>
 
+            <FontImageSource x:Key="FavOutlineIcon" Glyph="&#xE87E;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="FavOutlineImage" Source="{StaticResource FavOutlineIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32"/>
+
+            <FontImageSource x:Key="DownloadIcon" Glyph="&#xE2C4;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="DownloadImage" Source="{StaticResource DownloadIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32"/>
+
+            <FontImageSource x:Key="ArrowUpIcon" Glyph="&#xE5CE;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="ArrowUpImage" Source="{StaticResource ArrowUpIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="TagsIcon" Glyph="&#xE54E;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="TagsImage" Source="{StaticResource TagsIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="CommentsIcon" Glyph="&#xE0B9;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="CommentsImage" Source="{StaticResource CommentsIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="InfoIcon" Glyph="&#xE88E;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="InfoImage" Source="{StaticResource InfoIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="DashboardIcon" Glyph="&#xE871;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="DashboardImage" Source="{StaticResource DashboardIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="SettingsIcon" Glyph="&#xE8B8;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="SettingsImage" Source="{StaticResource SettingsIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <FontImageSource x:Key="AddIcon" Glyph="&#xE145;" FontFamily="MaterialIcons" Color="White" Size="64" />
+            <Image x:Key="AddImage" Source="{StaticResource AddIcon}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="32" WidthRequest="32" />
+
+            <!--#endregion-->
+
+            <!--#region Colors-->
+            <Color x:Key="colorPrimary">#2196F3</Color>
+            <Color x:Key="colorPrimaryDark">#1976D2</Color>
+            <Color x:Key="colorAccent">#FF4081</Color>
+
+            <Color x:Key="BackgroundLight">#FFFFFF</Color>
+            <Color x:Key="BackgroundDark">#202020</Color>
+
+            <Color x:Key="purple_500">#9C27B0</Color>
+            <Color x:Key="green_800">#2e7d32</Color>
+            <Color x:Key="red_700">#d32f2f</Color>
+            <Color x:Key="blue_700">#1976d2</Color>
+            <Color x:Key="orange_700">#f57c00</Color>
+            <!--#endregion-->
+
+            <!--#region Text Styles-->
+            <Style x:Key="Subtitle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <!--#endregion-->
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
