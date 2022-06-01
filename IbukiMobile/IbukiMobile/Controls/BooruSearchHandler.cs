@@ -14,8 +14,5 @@ namespace IbukiMobile.Controls {
                 SearchBoxVisibility = SearchBoxVisibility.Collapsible;
             }
         }
-        protected override void OnClearPlaceholderClicked() {
-            base.OnClearPlaceholderClicked();
-        }
     }
 }
