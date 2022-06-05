@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using System.Collections.Generic;
 using System.Linq;
+using IbukiBooruLibrary;
 using IbukiBooruLibrary.Classes;
 
 namespace IbukiMobile.Classes; 
@@ -24,5 +25,8 @@ public static class BooruCollectionExtensions {
         int index = sorted.BinarySearch(new BooruPost(ID));
         return index != -1 ? sorted[index] : null;
     }
-    
+
+    public static int GetID(this Dictionary<int, Booru> boorus, Booru booru) {
+        return boorus.FirstOrDefault(pair => pair.Value == booru).Key;
+    }
 }

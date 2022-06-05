@@ -8,12 +8,14 @@ using Android.OS;
 namespace IbukiMobile.Droid {
     [Activity(Label = "Ibuki", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity {
-        public void CheckAppPermissions() {
+        private void CheckAppPermissions() {
             if ((int)Build.VERSION.SdkInt < 23) {
                 return;
             } else {
-                if (PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName) != Permission.Granted && PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted) {
-                    string[] permissions = new string[] { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
+                if (PackageName != null && PackageManager != null 
+                                        && PackageManager.CheckPermission(Manifest.Permission.ReadExternalStorage, PackageName) != Permission.Granted
+                                        && PackageManager.CheckPermission(Manifest.Permission.WriteExternalStorage, PackageName) != Permission.Granted) {
+                    string[] permissions = { Manifest.Permission.ReadExternalStorage, Manifest.Permission.WriteExternalStorage };
                     RequestPermissions(permissions, 1);
                 }
             }

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:app="clr-namespace:IbukiMobile;assembly=IbukiMobile"
        xmlns:pages="clr-namespace:IbukiMobile.Pages"
+       xmlns:classes="clr-namespace:IbukiBooruLibrary;assembly=IbukiBooruLibrary"
        x:Class="IbukiMobile.AppShell"       
        BackgroundColor="{StaticResource colorPrimary}"
        FlyoutHeaderBehavior="CollapseOnScroll"
@@ -22,29 +24,51 @@
             </Grid>
         </ContentView>
     </Shell.FlyoutHeader>
-    
-    <MenuItem x:Name="DanbooruMenuItem" Text="Danbooru"/>
-    <MenuItem x:Name="SafebooruMenuItem" Text="Safebooru" />
-    <MenuItem x:Name="KonnachanMenuItem" Text="Konnachan" />
-    <MenuItem x:Name="GelbooruMenuItem" Text="Gelbooru" />
-    <MenuItem x:Name="DepribooruMenuItem" Text="Depribooru"/>
-    <MenuItem x:Name="CustomBooruMenuItem" IconImageSource="{StaticResource AddIcon}" Text="Create custom Booru"/>
 
-    <TabBar>
-        <Tab Title="Dashboard" Icon="{StaticResource DashboardIcon}">
-            <ShellContent Title="Dashboard" >
-                <pages:DashboardPage />
-            </ShellContent>
-        </Tab>
-        <Tab Title="Followed" Icon="{StaticResource FavOutlineIcon}">
-            <ShellContent Title="Favorites" >
-                <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
-            </ShellContent>
-        </Tab>
-        <Tab Title="Settings" Icon="{StaticResource SettingsIcon}">
-            <ShellContent Title="Settings" >
-                <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
-            </ShellContent>
-        </Tab>
-    </TabBar>
+    <Shell.FlyoutContent>
+        <Grid>
+            <ListView x:Name="BoorusListView" SelectionMode="Single" x:DataType="app:App" ItemsSource="{Binding ApplicationSettings.BindableBoorus}" ItemSelected="BoorusListView_ItemSelected" RowHeight="64">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="classes:Booru">
+                        <TextCell Text="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <!--<ListView.FooterTemplate>
+                    <DataTemplate>
+                        <TextCell Text="Edit Boorus" />
+                    </DataTemplate>
+                </ListView.FooterTemplate>-->
+            </ListView>
+            <Grid VerticalOptions="End" HeightRequest="64">
+                <Button Text="Edit Boorus" />
+            </Grid>
+        </Grid>
+    </Shell.FlyoutContent>
+    
+    <!-- <MenuItem x:Name="DanbooruMenuItem" Text="Danbooru"/> -->
+    <!-- <MenuItem x:Name="SafebooruMenuItem" Text="Safebooru" /> -->
+    <!-- <MenuItem x:Name="KonnachanMenuItem" Text="Konnachan" /> -->
+    <!-- <MenuItem x:Name="GelbooruMenuItem" Text="Gelbooru" /> -->
+    <!-- <MenuItem x:Name="DepribooruMenuItem" Text="Depribooru"/> -->
+    <!-- <MenuItem x:Name="CustomBooruMenuItem" IconImageSource="{StaticResource AddIcon}" Text="Create custom Booru"/> -->
+
+    <!--<ShellContent Appearing="AppShell_OnAppearing">-->
+        <TabBar>
+            <Tab Title="Dashboard" Icon="{StaticResource DashboardIcon}">
+                <ShellContent Title="Dashboard" >
+                    <pages:DashboardPage x:Name="_DashboardPage" />
+                </ShellContent>
+            </Tab>
+            <Tab Title="Followed" Icon="{StaticResource FavOutlineIcon}">
+                <ShellContent Title="Favorites" >
+                    <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
+                </ShellContent>
+            </Tab>
+            <Tab Title="Settings" Icon="{StaticResource SettingsIcon}">
+                <ShellContent Title="Settings" >
+                    <ContentPage Shell.FlyoutBehavior="Disabled"></ContentPage>
+                </ShellContent>
+            </Tab>
+        </TabBar>
+    <!--</ShellContent>-->
 </Shell>

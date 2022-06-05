@@ -35,10 +35,10 @@
 const IbukiBooruLibrary = importNamespace("IbukiBooruLibrary.API");
 
 const Extension = {
-    name: "Danbooru",
-    kind: "nsfw",
+    name: "Safebooru",
+    kind: "sfw",
     api_type: "json",
-    base_url: "https://danbooru.donmai.us",
+    base_url: "https://safebooru.donmai.us",
     tags_separator: "_",
 }
 
